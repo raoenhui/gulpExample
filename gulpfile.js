@@ -1,5 +1,5 @@
 const gulp = require('gulp');
-const {series} = require('gulp');
+const {series , watch ,task} = require('gulp');
 const babel = require('gulp-babel');
 const sourcemaps = require('gulp-sourcemaps');
 const concat = require('gulp-concat');
@@ -78,3 +78,7 @@ gulp.task('html', () => {
 });
 
 gulp.task('default', series('clean', 'js', 'css', 'html'))
+
+gulp.task('watch', ()=>{
+  gulp.watch('src/**', gulp.series('default'))
+})
