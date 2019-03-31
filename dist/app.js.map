@@ -1,0 +1,1 @@
+{"version":3,"sources":["app.js"],"names":["Test","Test2"],"mappings":";;AAAA,IAAMA,IAAI,GAAG,CAAb;AACA,IAAMC,KAAK,GAAG,CAAd","sourcesContent":["const Test = 1;\nconst Test2 = 2;"],"file":"app.js"}
