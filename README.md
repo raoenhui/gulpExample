@@ -1,3 +1,18 @@
+## 启动
+```bash
+#下载
+git clone https://github.com/raoenhui/gulpExample.git 
+
+#安装
+cd gulpExample && npm i
+
+#开发
+npm run dev 
+
+#打包
+npm run build 
+```
+
 ## 一、前言
 有些简单前端小项目，不需要涉及框架，前端打包压缩的话本妹子还是喜欢用`gulp`。
 
