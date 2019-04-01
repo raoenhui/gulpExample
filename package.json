@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "gulp watch",
+    "server":"gulp browser-sync",
     "build": "gulp default"
   },
   "repository": {
@@ -24,6 +25,7 @@
     "@babel/preset-env": "^7.3.4",
     "autoprefixer": "^9.4.10",
     "babel-preset-env": "^1.7.0",
+    "browser-sync": "^2.26.3",
     "del": "^4.0.0",
     "gulp": "^4.0.0",
     "gulp-babel": "^8.0.0",
@@ -32,7 +34,11 @@
     "gulp-htmlmin": "^5.0.1",
     "gulp-inline-source": "^4.0.0",
     "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-rev": "^9.0.0",
+    "gulp-rev-rewrite": "^1.1.4",
     "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2",
     "inline-source": "^6.1.9",
     "run-sequence": "^2.2.1"
   }

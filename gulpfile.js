@@ -1,5 +1,6 @@
 const gulp = require('gulp');
 const {series , watch ,task} = require('gulp');
+const uglify= require('gulp-uglify');
 const babel = require('gulp-babel');
 const sourcemaps = require('gulp-sourcemaps');
 const concat = require('gulp-concat');
@@ -12,6 +13,17 @@ const rev = require('gulp-rev');
 const revRewrite = require('gulp-rev-rewrite');
 const del = require('del');
 var rename = require("gulp-rename");
+var browserSync = require('browser-sync').create();
+
+// 静态服务器
+gulp.task('browser-sync', () => {
+    browserSync.init({
+        server: {
+            baseDir: "./dist/",
+            index: 'pre-index-min.html'
+        }
+    });
+});
 
 gulp.task('clean', () =>
   del(['./dist/*']).then(function () {
@@ -27,6 +39,7 @@ gulp.task('js', () =>
       presets: ['@babel/env'],
       plugins: ['@babel/transform-runtime']
     }))
+    .pipe(uglify())
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('dist')) // 将源文件拷贝到打包目录
     .pipe(rev())
@@ -34,6 +47,7 @@ gulp.task('js', () =>
     .pipe(rev.manifest('js-rev.json'))
     .pipe(gulp.dest('dist')) // 将map映射文件添加到打包目录
 );
+
 
 gulp.task('css', () =>
   gulp.src('./src/*.css')
@@ -80,5 +94,5 @@ gulp.task('html', () => {
 gulp.task('default', series('clean', 'js', 'css', 'html'))
 
 gulp.task('watch', ()=>{
-  gulp.watch('src/**', gulp.series('default'))
+  gulp.watch('src/**', series('default'))
 })

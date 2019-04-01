@@ -9,6 +9,9 @@ cd gulpExample && npm i
 #开发
 npm run dev 
 
+#打开网页
+npm run server 
+
 #打包
 npm run build 
 ```
@@ -97,6 +100,16 @@ const concat = require('gulp-concat');
 gulp.task('js', function() {
   return gulp.src(['./src/app.js', './src/app2.js'])
     .pipe(concat('app.js'))
+    .pipe(gulp.dest('dist'));
+});             
+```
+#### gulp-uglify
+压缩`js`文件
+```javascript 
+const uglify= require('gulp-uglify');
+gulp.task('js', function() {
+  return gulp.src(['./src/app.js', './src/app2.js'])
+    .pipe(uglify())
     .pipe(gulp.dest('dist'));
 });             
 ```
